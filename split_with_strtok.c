@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "split.h"
 /**
 *split_with_strtok - Splits a string into words using strtok and a delimiter.
