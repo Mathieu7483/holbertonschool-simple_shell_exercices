@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-
+#include <split.h>
 /**
 * main - fork & wait example
 *
