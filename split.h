@@ -12,4 +12,9 @@
 
 char **split_with_strtok(char *str, const char *delim, int *count);
 
+char *read_line(void);
+char **parse_line(char *line);
+int execute_command(char **args);
+void free_args(char **args);
+
 #endif /*split_h*/
