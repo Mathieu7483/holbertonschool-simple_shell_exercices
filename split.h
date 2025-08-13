@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <errno.h>
 
 char **split_with_strtok(char *str, const char *delim, int *count);
 
