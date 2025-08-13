@@ -1,6 +1,6 @@
 #include "split.h"
 /**
-*main - fonction principale
+*environnement - fonction principale
 *@ac: Le nombre d'arguments.
 *@av: Un tableau de pointeurs vers les chaînes d'arguments.
 *@env: Un tableau de pointeurs vers les chaînes de variables d'environnement.
