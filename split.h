@@ -17,4 +17,7 @@ char **parse_line(char *line);
 int execute_command(char **args);
 void free_args(char **args);
 
+void find_command(char *filename, char *path);
+int check_path(char *directory, char *filename);
+
 #endif /*split_h*/
