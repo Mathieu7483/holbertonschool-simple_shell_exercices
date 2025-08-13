@@ -1,56 +1,55 @@
 #include "split.h"
 /**
- * @brief La variable externe 'environ' est un pointeur
- * vers un tableau de chaînes de caractères des variables
- * d'environnement.
- */
+* @brief La variable externe 'environ' est un pointeur
+* vers un tableau de chaînes de caractères des variables
+* d'environnement.
+*/
 extern char **environ;
 
 /**
- * @brief Indicateur pour savoir si l'environnement a été initialisé dynamiquement.
- */
+* @brief Indicateur pour savoir si l'environnement a été initialisé dynamiquement.
+*/
 static int environ_initialized = 0;
 
 /**
- * @brief Initialise l'environnement global en créant une copie entièrement dynamique.
- * * Cette fonction s'assure que toutes les chaînes et le tableau de pointeurs
- * sont alloués dynamiquement, ce qui permet des modifications et des
- * libérations de mémoire sûres par la suite.
- * * @return 0 en cas de succès, -1 en cas d'erreur.
- */
+* @brief Initialise l'environnement global en créant une copie entièrement dynamique.
+* * Cette fonction s'assure que toutes les chaînes et le tableau de pointeurs
+* sont alloués dynamiquement, ce qui permet des modifications et des
+* libérations de mémoire sûres par la suite.
+* * @return 0 en cas de succès, -1 en cas d'erreur.
+*/
 static int _init_environ(void)
 {
-    int i;
-    int count;
-    char **new_environ;
+	int i;
 
-    // Compter le nombre de variables existantes
-    for (count = 0; environ[count] != NULL; count++);
+	int count;
 
-    // Allouer de la mémoire pour le nouveau tableau de pointeurs
-    new_environ = malloc(sizeof(char *) * (count + 1));
-    if (new_environ == NULL)
-        return (-1);
+	char **new_environ;
 
-    // Dupliquer chaque chaîne de l'ancien environnement
-    for (i = 0; i < count; i++)
-    {
-        new_environ[i] = strdup(environ[i]);
-        if (new_environ[i] == NULL)
-        {
-            // Libérer ce qui a été alloué en cas d'erreur
-            for (int j = 0; j < i; j++)
-                free(new_environ[j]);
-            free(new_environ);
-            return (-1);
-        }
-    }
-    new_environ[count] = NULL;
+	for (count = 0; environ[count] != NULL; count++)
+	{
 
-    // Mettre à jour le pointeur global 'environ' et l'indicateur
-    environ = new_environ;
-    environ_initialized = 1;
-    return (0);
+	new_environ = malloc(sizeof(char *) * (count + 1));
+	if (new_environ == NULL)
+		return (-1);
+	for (i = 0; i < count; i++)
+	{
+		new_environ[i] = strdup(environ[i]);
+		if (new_environ[i] == NULL)
+		{
+			for (int j = 0; j < i; j++)
+
+				free(new_environ[j]);
+			free(new_environ);
+			return (-1);
+		}
+	}
+	new_environ[count] = NULL;
+
+	// Mettre à jour le pointeur global 'environ' et l'indicateur
+	environ = new_environ;
+	environ_initialized = 1;
+	return (0);
 }
 
 
