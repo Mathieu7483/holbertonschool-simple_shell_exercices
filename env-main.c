@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-*main - prints the environment
+*environnement - prints the environment
 *@ac: argument count
 *@av: argument vector (array of arguments)
 *@env: environment variables
