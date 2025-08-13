@@ -21,5 +21,6 @@ void find_command(char *filename, char *path);
 int check_path(char *directory, char *filename);
 
 int main(int ac, char **av, char **env);
+char *my_getenv(const char *name);
 
 #endif /*split_h*/
