@@ -45,4 +45,7 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+int _setenv(const char *name, const char *value, int overwrite);
+int _unsetenv(const char *name);
+
 #endif /*split_h*/
