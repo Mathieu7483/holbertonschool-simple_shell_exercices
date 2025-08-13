@@ -27,3 +27,32 @@ char *my_getenv(const char *name)
 
 	return (NULL);
 }
+/**
+ * main - Entry point of the program.
+ * Demonstrates usage of my_getenv to retrieve environment variables.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	char *path_val;
+	char *home_val;
+	char *shell_val;
+	char *unknown_val;
+
+	path_val = my_getenv("PATH");
+	home_val = my_getenv("HOME");
+	shell_val = my_getenv("SHELL");
+	unknown_val = my_getenv("NON_EXISTENT_VAR");
+
+	printf("Valeur de PATH: %s\n", path_val);
+	printf("Valeur de HOME: %s\n", home_val);
+	printf("Valeur de SHELL: %s\n", shell_val);
+
+	if (unknown_val == NULL)
+	{
+		printf("La variable NON_EXISTENT_VAR n'a pas été trouvée.\n");
+	}
+
+	return (0);
+}

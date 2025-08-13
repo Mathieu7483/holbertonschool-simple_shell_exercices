@@ -4,6 +4,7 @@
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
@@ -20,7 +21,7 @@ void free_args(char **args);
 void find_command(char *filename, char *path);
 int check_path(char *directory, char *filename);
 
-int main(int ac, char **av, char **env);
+int environnement(int ac, char **av, char **env);
 char *my_getenv(const char *name);
 
 #endif /*split_h*/
