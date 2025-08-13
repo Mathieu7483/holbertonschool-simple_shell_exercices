@@ -20,4 +20,6 @@ void free_args(char **args);
 void find_command(char *filename, char *path);
 int check_path(char *directory, char *filename);
 
+int main(int ac, char **av, char **env);
+
 #endif /*split_h*/
