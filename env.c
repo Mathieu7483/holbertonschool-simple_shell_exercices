@@ -6,7 +6,7 @@
 *@env: Un tableau de pointeurs vers les chaînes de variables d'environnement.
 *Return: 0 if access
 */
-int main(int ac, char **av, char **env)
+int environnement(int ac, char **av, char **env)
 {
 printf("Adresse de la variable locale 'env' (le 3e paramètre de main) :\n"
 	   "%p\n", (void *)env);
